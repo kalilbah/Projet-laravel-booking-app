@@ -14,6 +14,7 @@ class PropertyFactory extends Factory
 
     public function definition(): array
     {
+        // Jeu de donnees fixe pour generer des biens avec un nom et une description.
         $properties = [
             [
                 'name' => 'Loft lumineux a Lyon',
@@ -41,6 +42,7 @@ class PropertyFactory extends Factory
             ],
         ];
 
+        // Selection aleatoire d'un bien pour alimenter les données de demonstration.
         $property = fake()->randomElement($properties);
 
         return [

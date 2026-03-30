@@ -13,11 +13,13 @@
         @csrf
     </form>
 
+    {{-- Le formulaire accepte maintenant l'envoi d'une image de profil. --}}
     <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
         <div class="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
+            {{-- Bloc d'apercu de la photo actuellement associée au compte. --}}
             <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <p class="text-sm font-medium text-slate-700">Photo actuelle</p>
 
@@ -32,12 +34,14 @@
 
             <div class="space-y-5">
                 <div>
+                    {{-- Champ de upload pour ajouter ou remplacer la photo de profil. --}}
                     <x-input-label for="profile_photo" value="Photo de profil" />
                     <input id="profile_photo" name="profile_photo" type="file" accept="image/*" class="mt-2 block w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm focus:border-primary focus:ring-primary">
                     <x-input-error class="mt-2" :messages="$errors->get('profile_photo')" />
                 </div>
 
                 @if ($user->profile_photo_path)
+                    {{-- Option pour supprimer explicitement la photo enregistree. --}}
                     <label class="inline-flex items-center gap-3 text-sm text-slate-600">
                         <input type="checkbox" name="remove_profile_photo" value="1" class="rounded border-slate-300 text-primary shadow-sm focus:ring-primary">
                         Supprimer la photo actuelle

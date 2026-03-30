@@ -17,10 +17,12 @@
                 </a>
                 @auth
                     @if (Auth::user()->isAdmin())
+                        {{-- Lien reserve aux comptes administrateurs vers le panneau Filament. --}}
                         <a href="/admin" class="rounded-full px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950">
                             Administration
                         </a>
                     @else
+                        {{-- Lien client vers le tableau de bord des reservations. --}}
                         <a href="{{ route('dashboard') }}" class="rounded-full px-4 py-2 text-sm font-medium {{ request()->routeIs('dashboard') ? 'bg-secondary text-white' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950' }}">
                             Tableau de bord
                         </a>
@@ -36,6 +38,7 @@
                         Administration
                     </a>
                 @else
+                    {{-- La photo de profil remplace ici l'ancien lien texte avec le nom de l utilisateur. --}}
                     <a href="{{ route('profile.edit') }}" class="inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-full ring-2 ring-slate-200 transition hover:ring-primary/40" aria-label="Acceder au profil">
                         <img src="{{ Auth::user()->profilePhotoUrl() }}" alt="Photo de profil de {{ Auth::user()->name }}" class="h-full w-full object-cover">
                     </a>
@@ -67,6 +70,7 @@
                     <a href="/admin" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Administration</a>
                 @else
                     <a href="{{ route('dashboard') }}" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Tableau de bord</a>
+                    {{-- Version mobile du lien profil avec affichage de la photo. --}}
                     <a href="{{ route('profile.edit') }}" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">
                         <img src="{{ Auth::user()->profilePhotoUrl() }}" alt="Photo de profil de {{ Auth::user()->name }}" class="h-9 w-9 rounded-full object-cover">
                         <span>Profil</span>

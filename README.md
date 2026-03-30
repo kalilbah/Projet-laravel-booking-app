@@ -4,6 +4,7 @@ Application de gestion de reservations immobilieres realisee avec Laravel, Breez
 
 ## Fonctionnalites
 
+<!-- Resume rapide des briques fonctionnelles mises en place dans le projet. -->
 - Authentification Breeze en Blade.
 - Catalogue public des biens immobiliers.
 - Fiche detaillee par bien avec module de reservation Livewire.
@@ -13,6 +14,7 @@ Application de gestion de reservations immobilieres realisee avec Laravel, Breez
 
 ## Installation
 
+<!-- Etapes minimales pour installer, initialiser et lancer le projet localement. -->
 1. Installer les dependances PHP:
 
 ```bash
@@ -45,6 +47,7 @@ composer run dev
 
 ## Compte de demonstration
 
+<!-- Comptes fournis pour tester rapidement le parcours client et l espace admin. -->
 - Admin Filament: `admin@example.com` / `password`
 - Email: `test@example.com`
 - Mot de passe client: `password`
@@ -57,5 +60,6 @@ php artisan test
 
 ## Filament
 
+<!-- Precision sur l'acces au panneau d administration. -->
 Le panneau d'administration est disponible sur `/admin`.
 Seuls les utilisateurs avec le role `admin` peuvent y acceder.

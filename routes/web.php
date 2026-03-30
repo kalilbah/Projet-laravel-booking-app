@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PropertyController::class, 'index'])->name('properties.index');
 Route::get('/properties/{property}', [PropertyController::class, 'show'])->name('properties.show');
 
+// L'espace client reste accessible uniquement aux utilisateurs connectes, verifies et non administrateurs.
 Route::middleware(['auth', 'verified', EnsureCustomer::class])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 });
 
+// Les pages de profil sont reservees au parcours utilisateur classique, hors compte admin.
 Route::middleware(['auth', EnsureCustomer::class])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

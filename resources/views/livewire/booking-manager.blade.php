@@ -19,6 +19,7 @@
         @endif
 
         @guest
+            {{-- Message affiche aux visiteurs non connectes avant toute reservation. --}}
             <div class="mt-6 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
                 Connectez-vous pour effectuer une reservation.
             </div>
@@ -26,10 +27,12 @@
 
         @auth
             @if (auth()->user()->isAdmin())
+                {{-- Message specifique pour rappeler qu un administrateur ne peut pas reserver comme un client. --}}
                 <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
-                    Le compte administrateur n a pas acces a l espace de reservation client.
+                    Le compte administrateur n'a pas accès à l'espace de reservation client.
                 </div>
             @else
+                {{-- Formulaire de réservation réserve aux utilisateurs clients authentifies. --}}
                 <form wire:submit="save" class="mt-6 grid gap-4 md:grid-cols-2">
                     <label class="block">
                         <span class="text-sm font-medium text-slate-700">Date d'arrivee</span>

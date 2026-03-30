@@ -32,6 +32,7 @@ class BookingManager extends Component
             return;
         }
 
+        // Bloque l'usage du module de reservation pour un compte administrateur.
         if (Auth::user()->isAdmin()) {
             $this->redirect('/admin', navigate: true);
 
@@ -60,6 +61,7 @@ class BookingManager extends Component
         ]);
 
         $this->reset(['start_date', 'end_date']);
+        // Message affiche dans l'interface apres une reservation enregistree.
         $this->successMessage = 'Reservation enregistree avec succes.';
 
         $this->dispatch('booking-created');

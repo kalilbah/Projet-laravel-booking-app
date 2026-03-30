@@ -11,6 +11,7 @@
                 </p>
             </div>
 
+            {{-- Carte de rappel avec l'adresse e-mail du compte connecte. --}}
             <div class="rounded-3xl border border-white/70 bg-white/80 px-5 py-4 shadow-sm backdrop-blur">
                 <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Compte</p>
                 <p class="mt-1 text-base font-semibold text-slate-950">{{ $user->email }}</p>
@@ -20,6 +21,7 @@
 
     <div class="py-10">
         <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:px-8">
+            {{-- Colonne de presentation du profil avec photo, nom et statut du compte. --}}
             <aside class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                 <div class="flex flex-col items-center text-center">
                     <img src="{{ $user->profilePhotoUrl() }}" alt="Photo de profil de {{ $user->name }}" class="h-28 w-28 rounded-full object-cover ring-4 ring-primary/10">
@@ -36,6 +38,7 @@
                 </div>
             </aside>
 
+            {{-- Colonne des formulaires de mise a jour du compte. --}}
             <div class="space-y-6">
                 <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
                     @include('profile.partials.update-profile-information-form')
