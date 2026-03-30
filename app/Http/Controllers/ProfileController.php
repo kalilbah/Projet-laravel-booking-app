@@ -30,6 +30,7 @@ class ProfileController extends Controller
         $user = $request->user();
         $validated = $request->validated();
 
+        // On limite la mise à jour aux champs du profil gèrés par ce formulaire.
         $user->fill([
             'name' => $validated['name'],
             'email' => $validated['email'],
@@ -39,11 +40,13 @@ class ProfileController extends Controller
             $user->email_verified_at = null;
         }
 
+        // Si l'utilisateur démande la suppression de sa photo, on éfface aussi le fichier stocke.
         if ($request->boolean('remove_profile_photo') && $user->profile_photo_path) {
             Storage::disk('public')->delete($user->profile_photo_path);
             $user->profile_photo_path = null;
         }
 
+        // En cas de nouvelle photo, on remplace proprement l'ancienne avant d'enregistrer la nouvelle.
         if ($request->hasFile('profile_photo')) {
             if ($user->profile_photo_path) {
                 Storage::disk('public')->delete($user->profile_photo_path);
@@ -70,6 +73,7 @@ class ProfileController extends Controller
 
         Auth::logout();
 
+        // On supprime aussi la photo de profil pour ne pas laisser de fichier orphelin.
         if ($user->profile_photo_path) {
             Storage::disk('public')->delete($user->profile_photo_path);
         }
