@@ -28,6 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Redirige les admins vers l'espace d administration et les autres vers leur tableau de bord.
         $redirectTo = $request->user()->isAdmin()
             ? '/admin'
             : route('dashboard', absolute: false);
