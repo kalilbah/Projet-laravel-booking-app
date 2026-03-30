@@ -1,26 +1,51 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.25em] text-primary">Mon compte</p>
+                <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950">
+                    Gerer votre profil
+                </h2>
+                <p class="mt-2 text-sm text-slate-600">
+                    Mettez a jour vos informations personnelles, votre photo et la securite de votre compte.
+                </p>
+            </div>
+
+            <div class="rounded-3xl border border-white/70 bg-white/80 px-5 py-4 shadow-sm backdrop-blur">
+                <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Compte</p>
+                <p class="mt-1 text-base font-semibold text-slate-950">{{ $user->email }}</p>
+            </div>
+        </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+    <div class="py-10">
+        <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:px-8">
+            <aside class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div class="flex flex-col items-center text-center">
+                    <img src="{{ $user->profilePhotoUrl() }}" alt="Photo de profil de {{ $user->name }}" class="h-28 w-28 rounded-full object-cover ring-4 ring-primary/10">
+
+                    <h3 class="mt-5 text-xl font-semibold text-slate-950">{{ $user->name }}</h3>
+                    <p class="mt-1 text-sm text-slate-500">{{ $user->email }}</p>
+
+                    <div class="mt-5 w-full rounded-2xl bg-slate-50 px-4 py-4 text-left">
+                        <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Statut</p>
+                        <p class="mt-2 text-sm font-medium text-slate-700">
+                            {{ $user->hasVerifiedEmail() ? 'Adresse e-mail verifiee' : 'Adresse e-mail en attente de verification' }}
+                        </p>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="space-y-6">
+                <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
                     @include('profile.partials.update-profile-information-form')
                 </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+                <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
                     @include('profile.partials.update-password-form')
                 </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+                <div class="rounded-3xl border border-rose-100 bg-white p-6 shadow-sm sm:p-8">
                     @include('profile.partials.delete-user-form')
                 </div>
             </div>
