@@ -147,79 +147,79 @@ npm run dev
 
 ### Page d accueil
 
-<img src="./screenshot/pageAcceuil.png" alt="Page d accueil" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/pageAcceuil.png" alt="Page d accueil" width="900" />
 
 Cette page presente le catalogue public de l application. Elle permet de visualiser rapidement les biens disponibles, d acceder a leur fiche detaillee et d orienter l utilisateur vers la creation de compte ou vers son espace personnel.
 
 ### Connexion client
 
-<img src="./screenshot/login-client.png" alt="Connexion client" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/login-client.png" alt="Connexion client" width="900" />
 
 Cette interface permet a un utilisateur classique de se connecter a son compte. Elle constitue le point d entree vers l espace membre, le suivi des reservations et la gestion du profil.
 
 ### Tableau de bord utilisateur
 
-<img src="./screenshot/tableau-de-bord.png" alt="Tableau de bord utilisateur" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/tableau-de-bord.png" alt="Tableau de bord utilisateur" width="900" />
 
 Cette page correspond a l espace utilisateur. Elle centralise les reservations du client, propose des acces rapides vers le catalogue et le profil, et permet egalement d annuler une reservation existante.
 
 ### Fiche detaillee et reservation
 
-<img src="./screenshot/faireUneReservation.png" alt="Fiche detaillee et reservation" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/faireUneReservation.png" alt="Fiche detaillee et reservation" width="900" />
 
 Cette page affiche le detail d un bien immobilier ainsi que le module de reservation Livewire. L utilisateur peut y selectionner ses dates, obtenir une estimation du sejour et envoyer directement sa demande de reservation.
 
 ### Gestion du profil
 
-<img src="./screenshot/gestionduprofil.png" alt="Gestion du profil" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/gestionduprofil.png" alt="Gestion du profil" width="900" />
 
 Cette page est dediee a la gestion du profil utilisateur. Elle permet de modifier les informations personnelles, d ajouter ou supprimer une photo de profil, et de gerer la securite du compte.
 
 ### Tableau de bord admin
 
-<img src="./screenshot/dashboard-admin.png" alt="Tableau de bord admin" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/dashboard-admin.png" alt="Tableau de bord admin" width="900" />
 
 Cette page constitue l accueil du panneau d administration Filament. Elle rassemble les indicateurs essentiels de l application, comme les statistiques globales et les reservations recentes.
 
 ### Interface administrateurs
 
-<img src="./screenshot/administrateur.png" alt="Interface administrateurs" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/administrateur.png" alt="Interface administrateurs" width="900" />
 
 Cette vue liste les comptes administrateurs de l application. Elle est volontairement en lecture seule afin de distinguer la consultation des administrateurs de la gestion des comptes clients.
 
 ### Gestion des clients par l admin
 
-<img src="./screenshot/gestion-clients-admin.png" alt="Gestion des clients par l admin" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/gestion-clients-admin.png" alt="Gestion des clients par l admin" width="900" />
 
 Cette page permet a l administrateur de consulter les comptes clients existants, de les rechercher et d acceder a leurs informations. Elle sert de point central pour la gestion des utilisateurs non administrateurs.
 
 ### Edition d un client
 
-<img src="./screenshot/editClient.png" alt="Edition d un client" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/editClient.png" alt="Edition d un client" width="900" />
 
 Cette interface permet de modifier les informations d un client depuis l espace d administration. L administrateur peut y mettre a jour les donnees du compte et suivre l etat general de l utilisateur.
 
 ### Gestion des proprietes cote admin
 
-<img src="./screenshot/proprietes-admin.png" alt="Gestion des proprietes cote admin" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/proprietes-admin.png" alt="Gestion des proprietes cote admin" width="900" />
 
 Cette page liste les biens immobiliers disponibles dans le panneau d administration. Elle permet de gerer le catalogue, de consulter les entrees existantes et d acceder aux operations de modification.
 
 ### Edition d une propriete
 
-<img src="./screenshot/edit-propriete.png" alt="Edition d une propriete" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/edit-propriete.png" alt="Edition d une propriete" width="900" />
 
 Cette page est dediee a la modification d un bien immobilier. L administrateur peut y ajuster les informations descriptives, le tarif et l ensemble des donnees necessaires a l affichage public du bien.
 
 ### Gestion des reservations cote admin
 
-<img src="./screenshot/reservations-admin.png" alt="Gestion des reservations cote admin" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/reservations-admin.png" alt="Gestion des reservations cote admin" width="900" />
 
 Cette vue permet a l administrateur de consulter l ensemble des reservations enregistrees dans l application. Elle facilite le suivi global des sejours et le controle administratif des operations en cours.
 
 ### Creation d une reservation par l admin
 
-<img src="./screenshot/create-reservation.png" alt="Creation d une reservation par l admin" width="900" />
+<img src="https://raw.githubusercontent.com/kalilbah/Projet-laravel-booking-app/main/screenshot/create-reservation.png" alt="Creation d une reservation par l admin" width="900" />
 
 Cette interface permet a l administrateur de creer une reservation manuellement. Il peut associer la reservation a un utilisateur existant en le recherchant par son adresse e-mail, puis selectionner le bien et les dates concernees.
 
