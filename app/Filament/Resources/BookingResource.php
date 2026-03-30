@@ -6,6 +6,7 @@ use App\Filament\Resources\BookingResource\Pages\CreateBooking;
 use App\Filament\Resources\BookingResource\Pages\EditBooking;
 use App\Filament\Resources\BookingResource\Pages\ListBookings;
 use App\Models\Booking;
+use App\Models\User;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\DatePicker;
@@ -43,9 +44,11 @@ class BookingResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->label('Utilisateur')
-                            ->relationship('user', 'name')
-                            ->searchable()
+                            ->relationship('user', 'email')
+                            ->getOptionLabelFromRecordUsing(fn (User $record): string => $record->name.' - '.$record->email)
+                            ->searchable(['name', 'email'])
                             ->preload()
+                            ->helperText('Recherchez un utilisateur existant par son email.')
                             ->required(),
                         Select::make('property_id')
                             ->label('Propriete')

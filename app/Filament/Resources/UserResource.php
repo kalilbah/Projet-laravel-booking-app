@@ -20,6 +20,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
 class UserResource extends Resource
@@ -28,15 +29,15 @@ class UserResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Administration';
 
-    protected static ?string $navigationLabel = 'Utilisateurs';
+    protected static ?string $navigationLabel = 'Clients';
 
     protected static string | \BackedEnum | null $navigationIcon = Heroicon::OutlinedUsers;
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $modelLabel = 'utilisateur';
+    protected static ?string $modelLabel = 'client';
 
-    protected static ?string $pluralModelLabel = 'utilisateurs';
+    protected static ?string $pluralModelLabel = 'clients';
 
     public static function form(Schema $schema): Schema
     {
@@ -112,7 +113,6 @@ class UserResource extends Resource
                 SelectFilter::make('role')
                     ->label('Role')
                     ->options([
-                        User::ROLE_ADMIN => 'Administrateur',
                         User::ROLE_CUSTOMER => 'Client',
                     ]),
             ])
@@ -132,9 +132,17 @@ class UserResource extends Resource
         ];
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->where('role', User::ROLE_CUSTOMER);
+    }
+
     public static function getNavigationBadge(): ?string
     {
-        return (string) static::getModel()::query()->count();
+        return (string) static::getModel()::query()
+            ->where('role', User::ROLE_CUSTOMER)
+            ->count();
     }
 
     public static function getNavigationBadgeColor(): string | array | null

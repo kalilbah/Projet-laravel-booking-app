@@ -26,10 +26,6 @@
                 <div class="mt-4 flex justify-center">
                     <img src="{{ $user->profilePhotoUrl() }}" alt="Photo de profil" class="h-24 w-24 rounded-full object-cover">
                 </div>
-
-                <p class="mt-4 text-xs leading-5 text-slate-500">
-                    Formats acceptes : JPG, PNG, WEBP. Taille maximale : 2 Mo.
-                </p>
             </div>
 
             <div class="space-y-5">
@@ -41,11 +37,11 @@
                 </div>
 
                 @if ($user->profile_photo_path)
-                    {{-- Option pour supprimer explicitement la photo enregistree. --}}
-                    <label class="inline-flex items-center gap-3 text-sm text-slate-600">
-                        <input type="checkbox" name="remove_profile_photo" value="1" class="rounded border-slate-300 text-primary shadow-sm focus:ring-primary">
-                        Supprimer la photo actuelle
-                    </label>
+                {{-- Option pour supprimer explicitement la photo enregistree. --}}
+                <label class="inline-flex items-center gap-3 text-sm text-slate-600">
+                    <input type="checkbox" name="remove_profile_photo" value="1" class="rounded border-slate-300 text-primary shadow-sm focus:ring-primary">
+                    Supprimer la photo actuelle
+                </label>
                 @endif
 
                 <div>
@@ -60,21 +56,21 @@
                     <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
                     @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                        <div>
-                            <p class="mt-2 text-sm text-slate-700">
-                                Votre adresse e-mail n est pas encore verifiee.
+                    <div>
+                        <p class="mt-2 text-sm text-slate-700">
+                            Votre adresse e-mail n'est pas encore verifiée.
 
-                                <button form="send-verification" class="ml-1 underline text-sm text-slate-600 hover:text-slate-950 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-                                    Renvoyer le lien de verification
-                                </button>
-                            </p>
+                            <button form="send-verification" class="ml-1 underline text-sm text-slate-600 hover:text-slate-950 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                                Renvoyer le lien de vérification
+                            </button>
+                        </p>
 
-                            @if (session('status') === 'verification-link-sent')
-                                <p class="mt-2 text-sm font-medium text-emerald-600">
-                                    Un nouveau lien de verification vous a ete envoye.
-                                </p>
-                            @endif
-                        </div>
+                        @if (session('status') === 'verification-link-sent')
+                        <p class="mt-2 text-sm font-medium text-emerald-600">
+                            Un nouveau lien de vérification vous a été envoyé.
+                        </p>
+                        @endif
+                    </div>
                     @endif
                 </div>
             </div>
@@ -84,13 +80,12 @@
             <x-primary-button>Enregistrer</x-primary-button>
 
             @if (session('status') === 'profile-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-slate-600"
-                >Modifications enregistrees.</p>
+            <p
+                x-data="{ show: true }"
+                x-show="show"
+                x-transition
+                x-init="setTimeout(() => show = false, 2000)"
+                class="text-sm text-slate-600">Modifications enregistrees.</p>
             @endif
         </div>
     </form>
