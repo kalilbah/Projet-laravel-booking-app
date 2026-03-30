@@ -26,7 +26,9 @@ class ProfileUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+            // Valide l'image envoyée pour la photo de profil avec une taille raisonnable.
             'profile_photo' => ['nullable', 'image', 'max:2048'],
+            // Permet de demander explicitement la suppression de la photo actuelle.
             'remove_profile_photo' => ['nullable', 'boolean'],
         ];
     }
