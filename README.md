@@ -1,34 +1,31 @@
 # Laravel Test Technique
 
-Application de gestion de réservations immobilières construite à partir du squelette créé avec :
+Application de gestion de reservations immobilieres construite a partir du squelette cree avec :
 
 ```bash
 composer create-project laravel/laravel laravel-test
 ```
 
-Le projet a ensuite été enrichi pour couvrir un cas complet de réservations de biens immobiliers avec espace client, panneau d'administration Filament, module de réservation Livewire et personnalisation du profil utilisateur.
+Le projet a ensuite ete enrichi pour couvrir un cas complet de reservations de biens immobiliers avec espace client, panneau d administration Filament, module de reservation Livewire et personnalisation du profil utilisateur.
 
 ## Objectif du projet
 
 Le site permet de :
-
 - consulter un catalogue public de biens immobiliers ;
-- ouvrir la fiche détaillée d'un bien ;
-- réserver un bien via un module Livewire ;
-- consulter, gérer et annuler ses réservations depuis un espace utilisateur ;
-- administrer les biens, les clients et les réservations depuis un panneau Filament.
+- ouvrir la fiche detaillee d un bien ;
+- reserver un bien via un module Livewire ;
+- consulter, gerer et annuler ses reservations depuis un espace utilisateur ;
+- administrer les biens, les clients et les reservations depuis un panneau Filament.
 
-## Dépendances ajoutées
+## Dependances ajoutees
 
-### Dépendances PHP principales
-
+### Dependances PHP principales
 - `laravel/framework:^13.0`
 - `laravel/tinker:^3.0`
 - `livewire/livewire:^4.2`
 - `filament/filament:^5.4`
 
-### Dépendances de développement
-
+### Dependances de developpement
 - `laravel/breeze:^2.4`
 - `fakerphp/faker:^1.23`
 - `laravel/pail:^1.2.5`
@@ -37,8 +34,7 @@ Le site permet de :
 - `nunomaduro/collision:^8.6`
 - `phpunit/phpunit:^12.5.12`
 
-### Dépendances front
-
+### Dependances front
 - `tailwindcss`
 - `@tailwindcss/forms`
 - `vite`
@@ -47,208 +43,176 @@ Le site permet de :
 - `axios`
 - `concurrently`
 
-## Évolutions apportées après la création du projet
+## Evolutions apportees apres la creation du projet
 
-### Fonctionnalités métier
-
-- ajout des modèles `Property` et `Booking` ;
-- mise en place des relations entre utilisateurs, biens et réservations ;
-- ajout des migrations pour les biens, les réservations, le rôle utilisateur et la photo de profil ;
-- génération de données de démonstration via factories et seeders.
+### Fonctionnalites metier
+- ajout des modeles `Property` et `Booking` ;
+- mise en place des relations entre utilisateurs, biens et reservations ;
+- ajout des migrations pour les biens, les reservations, le role utilisateur et la photo de profil ;
+- generation de donnees de demonstration via factories et seeders.
 
 ### Espace public
-
-- page d'accueil personnalisée ;
+- page d accueil personnalisee ;
 - catalogue public des biens ;
-- fiche détaillée pour chaque propriété ;
-- navigation adaptée selon le statut de connexion.
+- fiche detaillee pour chaque propriete ;
+- navigation adaptee selon le statut de connexion.
 
 ### Espace utilisateur
-
 - tableau de bord personnel ;
-- affichage des réservations du compte connecté ;
-- bouton d'annulation d'une réservation ;
+- affichage des reservations du compte connecte ;
+- bouton d annulation d une reservation ;
 - gestion du profil avec photo.
 
-### Réservation avec Livewire
-
-- choix des dates d'arrivée et de départ ;
-- estimation dynamique du séjour ;
-- validation et enregistrement de la réservation ;
-- blocage des réservations pour les visiteurs non connectés et pour les administrateurs.
+### Reservation avec Livewire
+- choix des dates d arrivee et de depart ;
+- estimation dynamique du sejour ;
+- validation et enregistrement de la reservation ;
+- blocage des reservations pour les visiteurs non connectes et pour les administrateurs.
 
 ### Administration avec Filament
-
 - panneau disponible sur `/admin` ;
 - gestion des biens ;
-- gestion des réservations ;
-- séparation entre `Clients` et `Administrateurs` ;
+- gestion des reservations ;
+- separation entre `Clients` et `Administrateurs` ;
 - liste des administrateurs en lecture seule ;
-- création de réservation admin avec attribution à un utilisateur existant recherché par email.
+- creation de reservation admin avec attribution a un utilisateur existant recherche par email.
 
-### Gestion des rôles
-
-- `admin` pour l'espace Filament ;
-- `customer` pour l'espace utilisateur ;
-- redirection automatique après connexion selon le rôle ;
+### Gestion des roles
+- `admin` pour l espace Filament ;
+- `customer` pour l espace utilisateur ;
+- redirection automatique apres connexion selon le role ;
 - protection des routes utilisateur via le middleware `EnsureCustomer`.
 
 ### Gestion de la photo de profil
-
 - ajout du champ `profile_photo_path` ;
-- upload d'image dans `storage/app/public/profile-photos` ;
+- upload d image dans `storage/app/public/profile-photos` ;
 - suppression de la photo existante ;
-- avatar par défaut si aucune photo n'est définie ;
+- avatar par defaut si aucune photo n est definie ;
 - affichage de la photo dans la navigation et sur la page profil.
 
-## Comptes de démonstration
+## Comptes de demonstration
 
 ### Admin
-
 - Email : `admin@example.com`
 - Mot de passe : `password`
 - URL : `http://127.0.0.1:8000/admin/login`
 
 ### Client
-
 - Email : `test@example.com`
 - Mot de passe : `password`
 
 ## Installation
 
-### 1. Installer les dépendances PHP
-
+### 1. Installer les dependances PHP
 ```bash
 composer install
 ```
 
-### 2. Installer les dépendances front
-
+### 2. Installer les dependances front
 ```bash
 npm install
 ```
 
-### 3. Configurer l'environnement
+### 3. Configurer l environnement
+Copier `.env.example` vers `.env`, puis configurer la base de donnees.
 
-Copier `.env.example` vers `.env`, puis configurer la base de données.
-
-Générer ensuite la clé d'application :
-
+Generer ensuite la cle d application :
 ```bash
 php artisan key:generate
 ```
 
-### 4. Exécuter les migrations et charger les données de test
-
+### 4. Executer les migrations et charger les donnees de test
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-### 5. Créer le lien de stockage public pour les photos
-
+### 5. Creer le lien de stockage public pour les photos
 ```bash
 php artisan storage:link
 ```
 
 ### 6. Lancer le projet
-
-Option recommandée :
-
+Option recommandee :
 ```bash
 composer run dev
 ```
 
 Ou manuellement :
-
 ```bash
 php artisan serve
 npm run dev
 ```
 
-## Captures d'écran
+## Captures d ecran
 
-### 1. Page d'accueil
+### 1. Page d accueil
+Vue d ensemble du catalogue public avec les biens disponibles et l acces aux principales actions du site.
 
-Vue d'ensemble du catalogue public avec les biens disponibles et l'accès aux principales actions du site.
-
-![Page d'accueil](screenshot/pageAcceuil.png)
+<img src="screenshot/pageAcceuil.png" alt="Page d accueil" width="100%">
 
 ### 2. Connexion client
+Formulaire de connexion pour un utilisateur classique avant acces au tableau de bord et aux reservations.
 
-Formulaire de connexion pour un utilisateur classique avant accès au tableau de bord et aux réservations.
-
-![Connexion client](screenshot/login%20client.png)
+<img src="screenshot/login%20client.png" alt="Connexion client" width="100%">
 
 ### 3. Tableau de bord utilisateur
+Espace membre permettant de consulter ses reservations, acceder a son profil et gerer son parcours client.
 
-Espace membre permettant de consulter ses réservations, accéder à son profil et gérer son parcours client.
+<img src="screenshot/tableauDeBord.png" alt="Tableau de bord utilisateur" width="100%">
 
-![Tableau de bord utilisateur](screenshot/tableauDeBord.png)
+### 4. Fiche detaillee et reservation
+Page detaillee d un bien avec le module Livewire permettant de choisir les dates et envoyer une reservation.
 
-### 4. Fiche détaillée et réservation
-
-Page détaillée d'un bien avec le module Livewire permettant de choisir les dates et envoyer une réservation.
-
-![Faire une réservation](screenshot/faireUneReservation.png)
+<img src="screenshot/faireUneReservation.png" alt="Faire une reservation" width="100%">
 
 ### 5. Gestion du profil
+Page de profil avec affichage de la photo, des informations du compte et possibilite de modifier ses donnees.
 
-Page de profil avec affichage de la photo, des informations du compte et possibilité de modifier ses données.
-
-![Gestion du profil](screenshot/gestionduprofil.png)
+<img src="screenshot/gestionduprofil.png" alt="Gestion du profil" width="100%">
 
 ### 6. Tableau de bord admin
+Vue principale du panneau Filament avec les indicateurs de suivi de l application.
 
-Vue principale du panneau Filament avec les indicateurs de suivi de l'application.
-
-![Dashboard admin](screenshot/DashboardAdmin.png)
+<img src="screenshot/DashboardAdmin.png" alt="Dashboard admin" width="100%">
 
 ### 7. Liste des administrateurs
-
 Vue de consultation des administrateurs dans Filament. Cette section est volontairement en lecture seule.
 
-![Administrateurs](screenshot/administrateur.png)
+<img src="screenshot/administrateur.png" alt="Administrateurs" width="100%">
 
-### 8. Gestion des clients par l'admin
+### 8. Gestion des clients par l admin
+Liste des clients gerables depuis l espace d administration.
 
-Liste des clients gérables depuis l'espace d'administration.
+<img src="screenshot/gestion%20de%20clien%20par%20admin.png" alt="Gestion des clients" width="100%">
 
-![Gestion des clients](screenshot/gestion%20de%20clien%20par%20admin.png)
+### 9. Edition d un client
+Formulaire d edition d un compte client dans l interface d administration.
 
-### 9. Édition d'un client
+<img src="screenshot/editClient.png" alt="Edition d un client" width="100%">
 
-Formulaire d'édition d'un compte client dans l'interface d'administration.
+### 10. Gestion des proprietes cote admin
+Liste des biens immobiliers dans Filament avec acces aux operations d administration.
 
-![Édition d'un client](screenshot/editClient.png)
+<img src="screenshot/proprietesCot%C3%A9Admin.png" alt="Proprietes cote admin" width="100%">
 
-### 10. Gestion des propriétés côté admin
+### 11. Edition d une propriete
+Formulaire de modification d un bien immobilier dans l interface admin.
 
-Liste des biens immobiliers dans Filament avec accès aux opérations d'administration.
+<img src="screenshot/editProprit%C3%A9.png" alt="Edition d une propriete" width="100%">
 
-![Propriétés côté admin](screenshot/proprietesCot%C3%A9Admin.png)
+### 12. Gestion des reservations cote admin
+Liste des reservations visibles dans le panneau d administration.
 
-### 11. Édition d'une propriété
+<img src="screenshot/reservation%20cote%20admin.png" alt="Reservations cote admin" width="100%">
 
-Formulaire de modification d'un bien immobilier dans l'interface admin.
+### 13. Creation d une reservation par l admin
+Formulaire Filament de creation d une reservation avec attribution a un utilisateur existant via recherche par email.
 
-![Édition d'une propriété](screenshot/editProprit%C3%A9.png)
+<img src="screenshot/create%20reservation%20.png" alt="Creation d une reservation" width="100%">
 
-### 12. Gestion des réservations côté admin
-
-Liste des réservations visibles dans le panneau d'administration.
-
-![Réservations côté admin](screenshot/reservation%20cote%20admin.png)
-
-### 13. Création d'une réservation par l'admin
-
-Formulaire Filament de création d'une réservation avec attribution à un utilisateur existant via recherche par email.
-
-![Création d'une réservation](screenshot/create%20reservation%20.png)
-
-## Principaux fichiers modifiés ou ajoutés
+## Principaux fichiers modifies ou ajoutes
 
 ### Backend
-
 - `app/Models/User.php`
 - `app/Http/Controllers/ProfileController.php`
 - `app/Http/Controllers/Auth/AuthenticatedSessionController.php`
@@ -262,11 +226,9 @@ Formulaire Filament de création d'une réservation avec attribution à un utili
 - `app/Filament/Resources/BookingResource.php`
 
 ### Routes
-
 - `routes/web.php`
 
-### Base de données
-
+### Base de donnees
 - `database/factories/PropertyFactory.php`
 - `database/seeders/DatabaseSeeder.php`
 - `database/migrations/2026_03_26_152144_create_properties_table.php`
@@ -275,7 +237,6 @@ Formulaire Filament de création d'une réservation avec attribution à un utili
 - `database/migrations/2026_03_30_090000_add_profile_photo_path_to_users_table.php`
 
 ### Vues
-
 - `resources/views/welcome.blade.php`
 - `resources/views/layouts/navigation.blade.php`
 - `resources/views/dashboard.blade.php`
@@ -285,7 +246,6 @@ Formulaire Filament de création d'une réservation avec attribution à un utili
 - `resources/views/livewire/booking-manager.blade.php`
 
 ### Assets
-
 - `public/images/default-profile.svg`
 - dossier `screenshot/`
 
@@ -295,13 +255,12 @@ Formulaire Filament de création d'une réservation avec attribution à un utili
 php artisan test
 ```
 
-## Résumé
+## Resume
 
-À partir d'un projet Laravel vide, ce projet est devenu une application complète de réservations immobilières avec :
-
+A partir d un projet Laravel vide, ce projet est devenu une application complete de reservations immobilieres avec :
 - authentification Breeze ;
-- réservations dynamiques avec Livewire ;
+- reservations dynamiques avec Livewire ;
 - administration avec Filament ;
-- séparation claire entre clients et administrateurs ;
+- separation claire entre clients et administrateurs ;
 - gestion de la photo de profil ;
-- interface personnalisée en Blade et TailwindCSS.
+- interface personnalisee en Blade et TailwindCSS.
