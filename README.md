@@ -148,67 +148,67 @@ npm run dev
 ### 1. Page d accueil
 Vue d ensemble du catalogue public avec les biens disponibles et l acces aux principales actions du site.
 
-<img src="screenshot/pageAcceuil.png" alt="Page d accueil" width="100%">
+<img src="./screenshot/pageAcceuil.png" alt="Page d accueil" width="100%">
 
 ### 2. Connexion client
 Formulaire de connexion pour un utilisateur classique avant acces au tableau de bord et aux reservations.
 
-<img src="screenshot/login%20client.png" alt="Connexion client" width="100%">
+<img src="./screenshot/login-client.png" alt="Connexion client" width="100%">
 
 ### 3. Tableau de bord utilisateur
 Espace membre permettant de consulter ses reservations, acceder a son profil et gerer son parcours client.
 
-<img src="screenshot/tableauDeBord.png" alt="Tableau de bord utilisateur" width="100%">
+<img src="./screenshot/tableau-de-bord.png" alt="Tableau de bord utilisateur" width="100%">
 
 ### 4. Fiche detaillee et reservation
 Page detaillee d un bien avec le module Livewire permettant de choisir les dates et envoyer une reservation.
 
-<img src="screenshot/faireUneReservation.png" alt="Faire une reservation" width="100%">
+<img src="./screenshot/faireUneReservation.png" alt="Faire une reservation" width="100%">
 
 ### 5. Gestion du profil
 Page de profil avec affichage de la photo, des informations du compte et possibilite de modifier ses donnees.
 
-<img src="screenshot/gestionduprofil.png" alt="Gestion du profil" width="100%">
+<img src="./screenshot/gestionduprofil.png" alt="Gestion du profil" width="100%">
 
 ### 6. Tableau de bord admin
 Vue principale du panneau Filament avec les indicateurs de suivi de l application.
 
-<img src="screenshot/DashboardAdmin.png" alt="Dashboard admin" width="100%">
+<img src="./screenshot/dashboard-admin.png" alt="Dashboard admin" width="100%">
 
 ### 7. Liste des administrateurs
 Vue de consultation des administrateurs dans Filament. Cette section est volontairement en lecture seule.
 
-<img src="screenshot/administrateur.png" alt="Administrateurs" width="100%">
+<img src="./screenshot/administrateur.png" alt="Administrateurs" width="100%">
 
 ### 8. Gestion des clients par l admin
 Liste des clients gerables depuis l espace d administration.
 
-<img src="screenshot/gestion%20de%20clien%20par%20admin.png" alt="Gestion des clients" width="100%">
+<img src="./screenshot/gestion-clients-admin.png" alt="Gestion des clients" width="100%">
 
 ### 9. Edition d un client
 Formulaire d edition d un compte client dans l interface d administration.
 
-<img src="screenshot/editClient.png" alt="Edition d un client" width="100%">
+<img src="./screenshot/editClient.png" alt="Edition d un client" width="100%">
 
 ### 10. Gestion des proprietes cote admin
 Liste des biens immobiliers dans Filament avec acces aux operations d administration.
 
-<img src="screenshot/proprietesCot%C3%A9Admin.png" alt="Proprietes cote admin" width="100%">
+<img src="./screenshot/proprietes-admin.png" alt="Proprietes cote admin" width="100%">
 
 ### 11. Edition d une propriete
 Formulaire de modification d un bien immobilier dans l interface admin.
 
-<img src="screenshot/editProprit%C3%A9.png" alt="Edition d une propriete" width="100%">
+<img src="./screenshot/edit-propriete.png" alt="Edition d une propriete" width="100%">
 
 ### 12. Gestion des reservations cote admin
 Liste des reservations visibles dans le panneau d administration.
 
-<img src="screenshot/reservation%20cote%20admin.png" alt="Reservations cote admin" width="100%">
+<img src="./screenshot/reservations-admin.png" alt="Reservations cote admin" width="100%">
 
 ### 13. Creation d une reservation par l admin
 Formulaire Filament de creation d une reservation avec attribution a un utilisateur existant via recherche par email.
 
-<img src="screenshot/create%20reservation%20.png" alt="Creation d une reservation" width="100%">
+<img src="./screenshot/create-reservation.png" alt="Creation d une reservation" width="100%">
 
 ## Principaux fichiers modifies ou ajoutes
 
