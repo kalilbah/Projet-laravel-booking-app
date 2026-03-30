@@ -6,9 +6,6 @@
                 <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950">
                     Gerer votre profil
                 </h2>
-                <p class="mt-2 text-sm text-slate-600">
-                    Mettez a jour vos informations personnelles, votre photo et la securite de votre compte.
-                </p>
             </div>
 
             {{-- Carte de rappel avec l'adresse e-mail du compte connecte. --}}

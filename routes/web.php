@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\UserBookingController;
 use App\Http\Middleware\EnsureCustomer;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +13,7 @@ Route::get('/properties/{property}', [PropertyController::class, 'show'])->name(
 // L'espace client reste accessible uniquement aux utilisateurs connectes, verifies et non administrateurs.
 Route::middleware(['auth', 'verified', EnsureCustomer::class])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::delete('/dashboard/bookings/{booking}', [UserBookingController::class, 'destroy'])->name('dashboard.bookings.destroy');
 });
 
 // Les pages de profil sont reservees au parcours utilisateur classique, hors compte admin.
