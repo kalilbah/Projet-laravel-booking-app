@@ -165,6 +165,12 @@ php artisan serve
 npm run dev
 ```
 
+## Disponibilité Git et preuves visuelles
+
+- Dépôt Git : https://github.com/kalilbah/Projet-laravel-booking-app
+- Le projet est versionné et publiable via `git push` sur la branche distante.
+- Les captures d'écran du résultat sont fournies dans le dossier `Screenshot/` et présentées ci-dessous.
+
 ## Captures d'écran
 
 ### Page d'accueil
