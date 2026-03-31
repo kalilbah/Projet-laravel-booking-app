@@ -66,11 +66,20 @@
                     </p>
                 </div>
 
-                <button
-                    type="submit"
-                    class="inline-flex items-center justify-center rounded-full bg-secondary px-5 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-700 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
-                    Confirmer la réservation
-                </button>
+                <div class="flex items-center gap-3">
+                    <button
+                        type="button"
+                        wire:click="clearDates"
+                        class="inline-flex items-center justify-center rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-slate-950">
+                        Réinitialiser
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="inline-flex items-center justify-center rounded-full bg-secondary px-5 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-700 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
+                        Confirmer la réservation
+                    </button>
+                </div>
             </div>
         </form>
         @endif

@@ -93,6 +93,11 @@ class BookingManager extends Component
         return number_format($this->totalNights * (float) $this->property->price_per_night, 2, ',', ' ');
     }
 
+    public function clearDates(): void
+    {
+        $this->reset(['start_date', 'end_date']);
+    }
+
     public function render()
     {
         return view('livewire.booking-manager', [
