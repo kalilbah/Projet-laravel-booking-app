@@ -41,7 +41,7 @@ class BookingManager extends Component
             return;
         }
 
-        // Bloque l'usage du module de réservation pour un compte administrateur.
+        // On reserve ce module aux clients connectes et on ecarte les administrateurs.
         if ($user->isAdmin()) {
             $this->redirect('/admin', navigate: true);
 
@@ -58,7 +58,7 @@ class BookingManager extends Component
 
         if (! $this->property->isAvailableBetween($start->toDateString(), $end->toDateString())) {
             throw ValidationException::withMessages([
-                'start_date' => 'Cette période est déjà réservée pour ce logement.',
+                'start_date' => 'Cette periode est deja reservee pour ce logement.',
             ]);
         }
 
@@ -70,8 +70,8 @@ class BookingManager extends Component
         ]);
 
         $this->reset(['start_date', 'end_date']);
-        // Message affiché dans l'interface après une réservation enregistrée.
-        $this->successMessage = 'Réservation enregistrée avec succès.';
+        // Ce message est relaye dans la vue apres creation effective de la reservation.
+        $this->successMessage = 'Reservation enregistree avec succes.';
 
         $this->dispatch('booking-created');
     }
@@ -93,6 +93,7 @@ class BookingManager extends Component
         return number_format($this->totalNights * (float) $this->property->price_per_night, 2, ',', ' ');
     }
 
+    // Permet a l utilisateur de vider rapidement les dates choisies depuis l interface.
     public function clearDates(): void
     {
         $this->reset(['start_date', 'end_date']);

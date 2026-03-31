@@ -14,6 +14,7 @@ class DashboardController extends Controller
 
         abort_unless($userId !== null, 403);
 
+        // On recharge l utilisateur courant pour afficher uniquement ses reservations dans l espace membre.
         $user = User::query()->findOrFail($userId);
 
         return view('dashboard', [

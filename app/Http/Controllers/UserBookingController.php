@@ -10,6 +10,7 @@ class UserBookingController extends Controller
 {
     public function destroy(Booking $booking): RedirectResponse
     {
+        // Verifie qu'un utilisateur ne peut annuler que ses propres reservations.
         abort_unless($booking->user_id === Auth::id(), 403);
 
         $booking->delete();
