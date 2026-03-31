@@ -16,14 +16,14 @@ class ReservationOverview extends StatsOverviewWidget
             Stat::make('Biens', Property::query()->count())
                 ->description('Catalogue administrable')
                 ->color('primary'),
-            Stat::make('Reservations', Booking::query()->count())
-                ->description('Total des sejours enregistres')
+            Stat::make('Réservations', Booking::query()->count())
+                ->description('Total des séjours enregistrés')
                 ->color('success'),
             Stat::make('Clients', User::query()->count())
                 ->description('Comptes utilisateurs')
                 ->color('warning'),
-            Stat::make('Sejours a venir', Booking::query()->whereDate('start_date', '>=', now()->toDateString())->count())
-                ->description('Reservations futures')
+            Stat::make('Séjours à venir', Booking::query()->whereDate('start_date', '>=', now()->toDateString())->count())
+                ->description('Réservations futures')
                 ->color('info'),
         ];
     }

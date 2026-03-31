@@ -17,7 +17,7 @@ class BookingFactory extends Factory
     public function definition(): array
     {
         $startDate = fake()->dateTimeBetween('+2 days', '+1 month');
-        $endDate = (clone $startDate)->modify('+'.fake()->numberBetween(1, 7).' days');
+        $endDate = (clone $startDate)->modify('+' . fake()->numberBetween(1, 7) . ' days');
 
         return [
             'user_id' => User::factory(),

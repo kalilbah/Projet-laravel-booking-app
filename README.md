@@ -1,33 +1,33 @@
 # Laravel Test Technique
 
-Application de gestion de reservations immobilieres construite a partir du squelette cree avec :
+Application de gestion de réservations immobilières construite à partir du squelette créé avec :
 
 ```bash
 composer create-project laravel/laravel laravel-test
 ```
 
-Le projet a ensuite ete enrichi pour couvrir un cas complet de reservations de biens immobiliers avec espace client, panneau d administration Filament, module de reservation Livewire et personnalisation du profil utilisateur.
+Le projet a ensuite été enrichi pour couvrir un cas complet de réservations de biens immobiliers avec espace client, panneau d'administration Filament, module de réservation Livewire et personnalisation du profil utilisateur.
 
 ## Objectif du projet
 
 Le site permet de :
 
 - consulter un catalogue public de biens immobiliers ;
-- ouvrir la fiche detaillee d un bien ;
-- reserver un bien via un module Livewire ;
-- consulter, gerer et annuler ses reservations depuis un espace utilisateur ;
-- administrer les biens, les clients et les reservations depuis un panneau Filament.
+- ouvrir la fiche détaillée d'un bien ;
+- réserver un bien via un module Livewire ;
+- consulter, gérer et annuler ses réservations depuis un espace utilisateur ;
+- administrer les biens, les clients et les réservations depuis un panneau Filament.
 
-## Dependances ajoutees
+## Dépendances ajoutées
 
-### Dependances PHP principales
+### Dépendances PHP principales
 
 - `laravel/framework:^13.0`
 - `laravel/tinker:^3.0`
 - `livewire/livewire:^4.2`
 - `filament/filament:^5.4`
 
-### Dependances de developpement
+### Dépendances de développement
 
 - `laravel/breeze:^2.4`
 - `fakerphp/faker:^1.23`
@@ -37,7 +37,7 @@ Le site permet de :
 - `nunomaduro/collision:^8.6`
 - `phpunit/phpunit:^12.5.12`
 
-### Dependances front
+### Dépendances front
 
 - `tailwindcss`
 - `@tailwindcss/forms`
@@ -47,61 +47,61 @@ Le site permet de :
 - `axios`
 - `concurrently`
 
-## Evolutions apportees apres la creation du projet
+## Évolutions apportées après la création du projet
 
-### Fonctionnalites metier
+### Fonctionnalités métier
 
-- ajout des modeles `Property` et `Booking` ;
-- mise en place des relations entre utilisateurs, biens et reservations ;
-- ajout des migrations pour les biens, les reservations, le role utilisateur et la photo de profil ;
-- generation de donnees de demonstration via factories et seeders.
+- ajout des modèles `Property` et `Booking` ;
+- mise en place des relations entre utilisateurs, biens et réservations ;
+- ajout des migrations pour les biens, les réservations, le rôle utilisateur et la photo de profil ;
+- génération de données de démonstration via factories et seeders.
 
 ### Espace public
 
-- page d accueil personnalisee ;
+- page d'accueil personnalisée ;
 - catalogue public des biens ;
-- fiche detaillee pour chaque propriete ;
-- navigation adaptee selon le statut de connexion.
+- fiche détaillée pour chaque propriété ;
+- navigation adaptée selon le statut de connexion.
 
 ### Espace utilisateur
 
 - tableau de bord personnel ;
-- affichage des reservations du compte connecte ;
-- bouton d annulation d une reservation ;
+- affichage des réservations du compte connecté ;
+- bouton d'annulation d'une réservation ;
 - gestion du profil avec photo.
 
-### Reservation avec Livewire
+### Réservation avec Livewire
 
-- choix des dates d arrivee et de depart ;
-- estimation dynamique du sejour ;
-- validation et enregistrement de la reservation ;
-- blocage des reservations pour les visiteurs non connectes et pour les administrateurs.
+- choix des dates d'arrivée et de départ ;
+- estimation dynamique du séjour ;
+- validation et enregistrement de la réservation ;
+- blocage des réservations pour les visiteurs non connectés et pour les administrateurs.
 
 ### Administration avec Filament
 
 - panneau disponible sur `/admin` ;
 - gestion des biens ;
-- gestion des reservations ;
-- separation entre `Clients` et `Administrateurs` ;
+- gestion des réservations ;
+- séparation entre `Clients` et `Administrateurs` ;
 - liste des administrateurs en lecture seule ;
-- creation de reservation admin avec attribution a un utilisateur existant recherche par email.
+- création de réservation admin avec attribution à un utilisateur existant recherché par email.
 
-### Gestion des roles
+### Gestion des rôles
 
-- `admin` pour l espace Filament ;
-- `customer` pour l espace utilisateur ;
-- redirection automatique apres connexion selon le role ;
+- `admin` pour l'espace Filament ;
+- `customer` pour l'espace utilisateur ;
+- redirection automatique après connexion selon le rôle ;
 - protection des routes utilisateur via le middleware `EnsureCustomer`.
 
 ### Gestion de la photo de profil
 
 - ajout du champ `profile_photo_path` ;
-- upload d image dans `storage/app/public/profile-photos` ;
+- upload d'image dans `storage/app/public/profile-photos` ;
 - suppression de la photo existante ;
-- avatar par defaut si aucune photo n est definie ;
+- avatar par défaut si aucune photo n'est définie ;
 - affichage de la photo dans la navigation et sur la page profil.
 
-## Comptes de demonstration
+## Comptes de démonstration
 
 ### Admin
 
@@ -116,35 +116,35 @@ Le site permet de :
 
 ## Installation
 
-### 1. Installer les dependances PHP
+### 1. Installer les dépendances PHP
 
 ```bash
 composer install
 ```
 
-### 2. Installer les dependances front
+### 2. Installer les dépendances front
 
 ```bash
 npm install
 ```
 
-### 3. Configurer l environnement
+### 3. Configurer l'environnement
 
-Copier `.env.example` vers `.env`, puis configurer la base de donnees.
+Copier `.env.example` vers `.env`, puis configurer la base de données.
 
-Generer ensuite la cle d application :
+Générer ensuite la clé d'application :
 
 ```bash
 php artisan key:generate
 ```
 
-### 4. Executer les migrations et charger les donnees de test
+### 4. Exécuter les migrations et charger les données de test
 
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-### 5. Creer le lien de stockage public pour les photos
+### 5. Créer le lien de stockage public pour les photos
 
 ```bash
 php artisan storage:link
@@ -152,7 +152,7 @@ php artisan storage:link
 
 ### 6. Lancer le projet
 
-Option recommandee :
+Option recommandée :
 
 ```bash
 composer run dev
@@ -165,87 +165,87 @@ php artisan serve
 npm run dev
 ```
 
-## Captures d ecran
+## Captures d'écran
 
-### Page d accueil
+### Page d'accueil
 
-<img src="Screenshot/pageAcceuil.png" alt="Page d accueil" width="900" />
+<img src="Screenshot/pageAcceuil.png" alt="Page d'accueil" width="900" />
 
-Cette page presente le catalogue public de l application. Elle permet de visualiser rapidement les biens disponibles, d acceder a leur fiche detaillee et d orienter l utilisateur vers la creation de compte ou vers son espace personnel.
+Cette page présente le catalogue public de l'application. Elle permet de visualiser rapidement les biens disponibles, d'accéder à leur fiche détaillée et d'orienter l'utilisateur vers la création de compte ou vers son espace personnel.
 
 ### Connexion client
 
 <img src="Screenshot/login-client.png" alt="Connexion client" width="900" />
 
-Cette interface permet a un utilisateur classique de se connecter a son compte. Elle constitue le point d entree vers l espace membre, le suivi des reservations et la gestion du profil.
+Cette interface permet à un utilisateur classique de se connecter à son compte. Elle constitue le point d'entrée vers l'espace membre, le suivi des réservations et la gestion du profil.
 
 ### Tableau de bord utilisateur
 
 <img src="Screenshot/tableau-de-bord.png" alt="Tableau de bord utilisateur" width="900" />
 
-Cette page correspond a l espace utilisateur. Elle centralise les reservations du client, propose des acces rapides vers le catalogue et le profil, et permet egalement d annuler une reservation existante.
+Cette page correspond à l'espace utilisateur. Elle centralise les réservations du client, propose des accès rapides vers le catalogue et le profil, et permet également d'annuler une réservation existante.
 
-### Fiche detaillee et reservation
+### Fiche détaillée et réservation
 
-<img src="Screenshot/faireUneReservation.png" alt="Fiche detaillee et reservation" width="900" />
+<img src="Screenshot/faireUneReservation.png" alt="Fiche détaillée et réservation" width="900" />
 
-Cette page affiche le detail d un bien immobilier ainsi que le module de reservation Livewire. L utilisateur peut y selectionner ses dates, obtenir une estimation du sejour et envoyer directement sa demande de reservation.
+Cette page affiche le détail d'un bien immobilier ainsi que le module de réservation Livewire. L'utilisateur peut y sélectionner ses dates, obtenir une estimation du séjour et envoyer directement sa demande de réservation.
 
 ### Gestion du profil
 
 <img src="Screenshot/gestionduprofil.png" alt="Gestion du profil" width="900" />
 
-Cette page est dediee a la gestion du profil utilisateur. Elle permet de modifier les informations personnelles, d ajouter ou supprimer une photo de profil, et de gerer la securite du compte.
+Cette page est dédiée à la gestion du profil utilisateur. Elle permet de modifier les informations personnelles, d'ajouter ou supprimer une photo de profil, et de gérer la sécurité du compte.
 
 ### Tableau de bord admin
 
 <img src="Screenshot/dashboard-admin.png" alt="Tableau de bord admin" width="900" />
 
-Cette page constitue l accueil du panneau d administration Filament. Elle rassemble les indicateurs essentiels de l application, comme les statistiques globales et les reservations recentes.
+Cette page constitue l'accueil du panneau d'administration Filament. Elle rassemble les indicateurs essentiels de l'application, comme les statistiques globales et les réservations récentes.
 
 ### Interface administrateurs
 
 <img src="Screenshot/administrateur.png" alt="Interface administrateurs" width="900" />
 
-Cette vue liste les comptes administrateurs de l application. Elle est volontairement en lecture seule afin de distinguer la consultation des administrateurs de la gestion des comptes clients.
+Cette vue liste les comptes administrateurs de l'application. Elle est volontairement en lecture seule afin de distinguer la consultation des administrateurs de la gestion des comptes clients.
 
-### Gestion des clients par l admin
+### Gestion des clients par l'admin
 
-<img src="Screenshot/gestion-clients-admin.png" alt="Gestion des clients par l admin" width="900" />
+<img src="Screenshot/gestion-clients-admin.png" alt="Gestion des clients par l'admin" width="900" />
 
-Cette page permet a l administrateur de consulter les comptes clients existants, de les rechercher et d acceder a leurs informations. Elle sert de point central pour la gestion des utilisateurs non administrateurs.
+Cette page permet à l'administrateur de consulter les comptes clients existants, de les rechercher et d'accéder à leurs informations. Elle sert de point central pour la gestion des utilisateurs non administrateurs.
 
-### Edition d un client
+### Édition d'un client
 
-<img src="Screenshot/editClient.png" alt="Edition d un client" width="900" />
+<img src="Screenshot/editClient.png" alt="Édition d'un client" width="900" />
 
-Cette interface permet de modifier les informations d un client depuis l espace d administration. L administrateur peut y mettre a jour les donnees du compte et suivre l etat general de l utilisateur.
+Cette interface permet de modifier les informations d'un client depuis l'espace d'administration. L'administrateur peut y mettre à jour les données du compte et suivre l'état général de l'utilisateur.
 
-### Gestion des proprietes cote admin
+### Gestion des propriétés côté admin
 
-<img src="Screenshot/proprietes-admin.png" alt="Gestion des proprietes cote admin" width="900" />
+<img src="Screenshot/proprietes-admin.png" alt="Gestion des propriétés côté admin" width="900" />
 
-Cette page liste les biens immobiliers disponibles dans le panneau d administration. Elle permet de gerer le catalogue, de consulter les entrees existantes et d acceder aux operations de modification.
+Cette page liste les biens immobiliers disponibles dans le panneau d'administration. Elle permet de gérer le catalogue, de consulter les entrées existantes et d'accéder aux opérations de modification.
 
-### Edition d une propriete
+### Édition d'une propriété
 
-<img src="Screenshot/edit-propriete.png" alt="Edition d une propriete" width="900" />
+<img src="Screenshot/edit-propriete.png" alt="Édition d'une propriété" width="900" />
 
-Cette page est dediee a la modification d un bien immobilier. L administrateur peut y ajuster les informations descriptives, le tarif et l ensemble des donnees necessaires a l affichage public du bien.
+Cette page est dédiée à la modification d'un bien immobilier. L'administrateur peut y ajuster les informations descriptives, le tarif et l'ensemble des données nécessaires à l'affichage public du bien.
 
-### Gestion des reservations cote admin
+### Gestion des réservations côté admin
 
-<img src="Screenshot/reservations-admin.png" alt="Gestion des reservations cote admin" width="900" />
+<img src="Screenshot/reservations-admin.png" alt="Gestion des réservations côté admin" width="900" />
 
-Cette vue permet a l administrateur de consulter l ensemble des reservations enregistrees dans l application. Elle facilite le suivi global des sejours et le controle administratif des operations en cours.
+Cette vue permet à l'administrateur de consulter l'ensemble des réservations enregistrées dans l'application. Elle facilite le suivi global des séjours et le contrôle administratif des opérations en cours.
 
-### Creation d une reservation par l admin
+### Création d'une réservation par l'admin
 
-<img src="Screenshot/create-reservation.png" alt="Creation d une reservation par l admin" width="900" />
+<img src="Screenshot/create-reservation.png" alt="Création d'une réservation par l'admin" width="900" />
 
-Cette interface permet a l administrateur de creer une reservation manuellement. Il peut associer la reservation a un utilisateur existant en le recherchant par son adresse e-mail, puis selectionner le bien et les dates concernees.
+Cette interface permet à l'administrateur de créer une réservation manuellement. Il peut associer la réservation à un utilisateur existant en le recherchant par son adresse e-mail, puis sélectionner le bien et les dates concernées.
 
-## Principaux fichiers modifies ou ajoutes
+## Principaux fichiers modifiés ou ajoutés
 
 ### Backend
 
@@ -265,7 +265,7 @@ Cette interface permet a l administrateur de creer une reservation manuellement.
 
 - `routes/web.php`
 
-### Base de donnees
+### Base de données
 
 - `database/factories/PropertyFactory.php`
 - `database/seeders/DatabaseSeeder.php`
@@ -287,7 +287,7 @@ Cette interface permet a l administrateur de creer une reservation manuellement.
 ### Assets
 
 - `public/images/default-profile.svg`
-- dossier `screenshot/`
+- dossier `Screenshot/`
 
 ## Tests
 
@@ -295,13 +295,13 @@ Cette interface permet a l administrateur de creer une reservation manuellement.
 php artisan test
 ```
 
-## Resume
+## Résumé
 
-A partir d un projet Laravel vide, ce projet est devenu une application complete de reservations immobilieres avec :
+À partir d'un projet Laravel vide, ce projet est devenu une application complète de réservations immobilières avec :
 
 - authentification Breeze ;
-- reservations dynamiques avec Livewire ;
+- réservations dynamiques avec Livewire ;
 - administration avec Filament ;
-- separation claire entre clients et administrateurs ;
+- séparation claire entre clients et administrateurs ;
 - gestion de la photo de profil ;
-- interface personnalisee en Blade et TailwindCSS.
+- interface personnalisée en Blade et TailwindCSS.

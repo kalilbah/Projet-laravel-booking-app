@@ -26,25 +26,25 @@ class RecentBookingsWidget extends TableWidget
                     ->label('Client')
                     ->searchable(),
                 TextColumn::make('property.name')
-                    ->label('Propriete')
+                    ->label('Propriété')
                     ->searchable(),
                 TextColumn::make('start_date')
-                    ->label('Arrivee')
+                    ->label('Arrivée')
                     ->date('d/m/Y')
                     ->icon(Heroicon::OutlinedCalendarDays),
                 TextColumn::make('end_date')
-                    ->label('Depart')
+                    ->label('Départ')
                     ->date('d/m/Y'),
                 TextColumn::make('created_at')
                     ->label('Statut')
                     ->badge()
                     ->formatStateUsing(function ($state, Booking $record): string {
                         if ($record->start_date->isFuture()) {
-                            return 'A venir';
+                            return 'À venir';
                         }
 
                         if ($record->end_date->isPast()) {
-                            return 'Termine';
+                            return 'Terminé';
                         }
 
                         return 'En cours';

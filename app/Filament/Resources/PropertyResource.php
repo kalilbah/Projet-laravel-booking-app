@@ -24,15 +24,15 @@ class PropertyResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Catalogue';
 
-    protected static ?string $navigationLabel = 'Proprietes';
+    protected static ?string $navigationLabel = 'Propriétés';
 
     protected static string | \BackedEnum | null $navigationIcon = Heroicon::OutlinedHomeModern;
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $modelLabel = 'propriete';
+    protected static ?string $modelLabel = 'propriété';
 
-    protected static ?string $pluralModelLabel = 'proprietes';
+    protected static ?string $pluralModelLabel = 'propriétés';
 
     public static function form(Schema $schema): Schema
     {
@@ -73,7 +73,7 @@ class PropertyResource extends Resource
                     ->money('EUR')
                     ->sortable(),
                 TextColumn::make('bookings_count')
-                    ->label('Reservations')
+                    ->label('Réservations')
                     ->counts('bookings')
                     ->badge()
                     ->color('primary'),

@@ -7,7 +7,7 @@
             <h3 class="mt-3 text-xl font-semibold text-slate-950">{{ $property->name }}</h3>
         </div>
         <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
-            {{ $property->bookings_count ?? $property->bookings->count() }} reservation(s)
+            {{ $property->bookings_count ?? $property->bookings->count() }} réservation(s)
         </span>
     </div>
 
@@ -22,7 +22,7 @@
         </div>
 
         <x-ui.button href="{{ route('properties.show', $property) }}" variant="secondary" size="sm">
-            Reserver
+            Réserver
         </x-ui.button>
     </div>
 </article>

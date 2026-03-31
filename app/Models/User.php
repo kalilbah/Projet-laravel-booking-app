@@ -22,10 +22,10 @@ class User extends Authenticatable implements FilamentUser, HasName
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
-    // Rôle utilise pour l'acces au panneau d'administration.
+    // Rôle utilisé pour l'accès au panneau d'administration.
     public const ROLE_ADMIN = 'admin';
 
-    // Rôle par defaut pour les utilisateurs du site.
+    // Rôle par défaut pour les utilisateurs du site.
     public const ROLE_CUSTOMER = 'customer';
 
     /**
@@ -57,7 +57,7 @@ class User extends Authenticatable implements FilamentUser, HasName
         return $this->name;
     }
 
-    // Verifie si l'utilisateur courant possède le rôle admin.
+    // Vérifie si l'utilisateur courant possède le rôle admin.
     public function isAdmin(): bool
     {
         return $this->role === self::ROLE_ADMIN;
@@ -73,7 +73,7 @@ class User extends Authenticatable implements FilamentUser, HasName
         return '/images/default-profile.svg';
     }
 
-    // Consérve un fallback textuel reutilisable si besoin ailleurs dans l'interface.
+    // Conserve un fallback textuel réutilisable si besoin ailleurs dans l'interface.
     public function initials(): string
     {
         return str($this->name)

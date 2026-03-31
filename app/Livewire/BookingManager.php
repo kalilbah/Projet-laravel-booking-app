@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Booking;
 use App\Models\Property;
+use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -32,8 +33,16 @@ class BookingManager extends Component
             return;
         }
 
-        // Bloque l'usage du module de reservation pour un compte administrateur.
-        if (Auth::user()->isAdmin()) {
+        $user = Auth::user();
+
+        if (! $user instanceof User) {
+            $this->redirectRoute('login', navigate: true);
+
+            return;
+        }
+
+        // Bloque l'usage du module de réservation pour un compte administrateur.
+        if ($user->isAdmin()) {
             $this->redirect('/admin', navigate: true);
 
             return;
@@ -49,7 +58,7 @@ class BookingManager extends Component
 
         if (! $this->property->isAvailableBetween($start->toDateString(), $end->toDateString())) {
             throw ValidationException::withMessages([
-                'start_date' => 'Cette periode est deja reservee pour ce logement.',
+                'start_date' => 'Cette période est déjà réservée pour ce logement.',
             ]);
         }
 
@@ -61,8 +70,8 @@ class BookingManager extends Component
         ]);
 
         $this->reset(['start_date', 'end_date']);
-        // Message affiche dans l'interface apres une reservation enregistree.
-        $this->successMessage = 'Reservation enregistree avec succes.';
+        // Message affiché dans l'interface après une réservation enregistrée.
+        $this->successMessage = 'Réservation enregistrée avec succès.';
 
         $this->dispatch('booking-created');
     }

@@ -56,7 +56,7 @@ class UserResource extends Resource
                             ->unique(ignoreRecord: true)
                             ->maxLength(255),
                         Select::make('role')
-                            ->label('Role')
+                            ->label('Rôle')
                             ->options([
                                 User::ROLE_ADMIN => 'Administrateur',
                                 User::ROLE_CUSTOMER => 'Client',
@@ -67,8 +67,8 @@ class UserResource extends Resource
                             ->label('Mot de passe')
                             ->password()
                             ->revealable()
-                            ->required(fn (string $operation): bool => $operation === 'create')
-                            ->dehydrated(fn (?string $state): bool => filled($state))
+                            ->required(fn(string $operation): bool => $operation === 'create')
+                            ->dehydrated(fn(?string $state): bool => filled($state))
                             ->minLength(8)
                             ->confirmed(),
                         TextInput::make('password_confirmation')
@@ -76,7 +76,7 @@ class UserResource extends Resource
                             ->password()
                             ->revealable()
                             ->dehydrated(false)
-                            ->required(fn (string $operation): bool => $operation === 'create'),
+                            ->required(fn(string $operation): bool => $operation === 'create'),
                     ])
                     ->columns(2),
             ]);
@@ -95,12 +95,12 @@ class UserResource extends Resource
                     ->searchable()
                     ->copyable(),
                 TextColumn::make('role')
-                    ->label('Role')
+                    ->label('Rôle')
                     ->badge()
-                    ->formatStateUsing(fn (string $state): string => $state === User::ROLE_ADMIN ? 'Admin' : 'Client')
-                    ->color(fn (string $state): string => $state === User::ROLE_ADMIN ? 'danger' : 'info'),
+                    ->formatStateUsing(fn(string $state): string => $state === User::ROLE_ADMIN ? 'Admin' : 'Client')
+                    ->color(fn(string $state): string => $state === User::ROLE_ADMIN ? 'danger' : 'info'),
                 TextColumn::make('bookings_count')
-                    ->label('Reservations')
+                    ->label('Réservations')
                     ->counts('bookings')
                     ->badge()
                     ->color('success'),
@@ -111,7 +111,7 @@ class UserResource extends Resource
             ])
             ->filters([
                 SelectFilter::make('role')
-                    ->label('Role')
+                    ->label('Rôle')
                     ->options([
                         User::ROLE_CUSTOMER => 'Client',
                     ]),

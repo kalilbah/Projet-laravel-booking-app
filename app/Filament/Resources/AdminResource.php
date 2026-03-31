@@ -42,7 +42,7 @@ class AdminResource extends Resource
                 TextColumn::make('role')
                     ->label('Role')
                     ->badge()
-                    ->formatStateUsing(fn (string $state): string => $state === User::ROLE_ADMIN ? 'Admin' : 'Client')
+                    ->formatStateUsing(fn(string $state): string => $state === User::ROLE_ADMIN ? 'Admin' : 'Client')
                     ->color('danger'),
                 TextColumn::make('created_at')
                     ->label('Creation')

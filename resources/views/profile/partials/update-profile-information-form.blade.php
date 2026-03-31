@@ -19,7 +19,7 @@
         @method('patch')
 
         <div class="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
-            {{-- Bloc d'apercu de la photo actuellement associée au compte. --}}
+            {{-- Bloc d'aperçu de la photo actuellement associée au compte. --}}
             <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <p class="text-sm font-medium text-slate-700">Photo actuelle</p>
 
@@ -30,14 +30,14 @@
 
             <div class="space-y-5">
                 <div>
-                    {{-- Champ de upload pour ajouter ou remplacer la photo de profil. --}}
+                    {{-- Champ d'upload pour ajouter ou remplacer la photo de profil. --}}
                     <x-input-label for="profile_photo" value="Photo de profil" />
                     <input id="profile_photo" name="profile_photo" type="file" accept="image/*" class="mt-2 block w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm focus:border-primary focus:ring-primary">
                     <x-input-error class="mt-2" :messages="$errors->get('profile_photo')" />
                 </div>
 
                 @if ($user->profile_photo_path)
-                {{-- Option pour supprimer explicitement la photo enregistree. --}}
+                {{-- Option pour supprimer explicitement la photo enregistrée. --}}
                 <label class="inline-flex items-center gap-3 text-sm text-slate-600">
                     <input type="checkbox" name="remove_profile_photo" value="1" class="rounded border-slate-300 text-primary shadow-sm focus:ring-primary">
                     Supprimer la photo actuelle
@@ -58,7 +58,7 @@
                     @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                     <div>
                         <p class="mt-2 text-sm text-slate-700">
-                            Votre adresse e-mail n'est pas encore verifiée.
+                            Votre adresse e-mail n'est pas encore vérifiée.
 
                             <button form="send-verification" class="ml-1 underline text-sm text-slate-600 hover:text-slate-950 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                                 Renvoyer le lien de vérification
@@ -85,7 +85,7 @@
                 x-show="show"
                 x-transition
                 x-init="setTimeout(() => show = false, 2000)"
-                class="text-sm text-slate-600">Modifications enregistrees.</p>
+                class="text-sm text-slate-600">Modifications enregistrées.</p>
             @endif
         </div>
     </form>

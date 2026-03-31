@@ -13,9 +13,9 @@ class PropertyController extends Controller
     {
         $properties = Schema::hasTable('properties')
             ? Property::query()
-                ->withCount('bookings')
-                ->latest()
-                ->paginate(6)
+            ->withCount('bookings')
+            ->latest()
+            ->paginate(6)
             : new LengthAwarePaginator([], 0, 6);
 
         return view('welcome', [
@@ -27,7 +27,7 @@ class PropertyController extends Controller
     {
         return view('properties.show', [
             'property' => $property->load([
-                'bookings' => fn ($query) => $query->with('user')->latest('start_date')->take(5),
+                'bookings' => fn($query) => $query->with('user')->latest('start_date')->take(5),
             ]),
         ]);
     }

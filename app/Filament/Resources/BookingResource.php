@@ -24,44 +24,44 @@ class BookingResource extends Resource
 {
     protected static ?string $model = Booking::class;
 
-    protected static string | UnitEnum | null $navigationGroup = 'Reservations';
+    protected static string | UnitEnum | null $navigationGroup = 'Réservations';
 
-    protected static ?string $navigationLabel = 'Reservations';
+    protected static ?string $navigationLabel = 'Réservations';
 
     protected static string | \BackedEnum | null $navigationIcon = Heroicon::OutlinedCalendarDays;
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $modelLabel = 'reservation';
+    protected static ?string $modelLabel = 'réservation';
 
-    protected static ?string $pluralModelLabel = 'reservations';
+    protected static ?string $pluralModelLabel = 'réservations';
 
     public static function form(Schema $schema): Schema
     {
         return $schema
             ->components([
-                Section::make('Reservation')
+                Section::make('Réservation')
                     ->schema([
                         Select::make('user_id')
                             ->label('Utilisateur')
                             ->relationship('user', 'email')
-                            ->getOptionLabelFromRecordUsing(fn (User $record): string => $record->name.' - '.$record->email)
+                            ->getOptionLabelFromRecordUsing(fn(User $record): string => $record->name . ' - ' . $record->email)
                             ->searchable(['name', 'email'])
                             ->preload()
                             ->helperText('Recherchez un utilisateur existant par son email.')
                             ->required(),
                         Select::make('property_id')
-                            ->label('Propriete')
+                            ->label('Propriété')
                             ->relationship('property', 'name')
                             ->searchable()
                             ->preload()
                             ->required(),
                         DatePicker::make('start_date')
-                            ->label('Date d\'arrivee')
+                            ->label('Date d\'arrivée')
                             ->required()
                             ->native(false),
                         DatePicker::make('end_date')
-                            ->label('Date de depart')
+                            ->label('Date de départ')
                             ->required()
                             ->afterOrEqual('start_date')
                             ->native(false),
@@ -79,25 +79,25 @@ class BookingResource extends Resource
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('property.name')
-                    ->label('Propriete')
+                    ->label('Propriété')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('start_date')
-                    ->label('Arrivee')
+                    ->label('Arrivée')
                     ->date('d/m/Y')
                     ->sortable(),
                 TextColumn::make('end_date')
-                    ->label('Depart')
+                    ->label('Départ')
                     ->date('d/m/Y')
                     ->sortable(),
                 TextColumn::make('created_at')
-                    ->label('Cree le')
+                    ->label('Créé le')
                     ->since()
                     ->sortable(),
             ])
             ->filters([
                 SelectFilter::make('property')
-                    ->label('Propriete')
+                    ->label('Propriété')
                     ->relationship('property', 'name')
                     ->searchable(),
                 SelectFilter::make('user')

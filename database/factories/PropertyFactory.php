@@ -14,35 +14,35 @@ class PropertyFactory extends Factory
 
     public function definition(): array
     {
-        // Jeu de donnees fixe pour generer des biens avec un nom et une description.
+        // Jeu de données fixe pour générer des biens avec un nom et une description.
         $properties = [
             [
-                'name' => 'Loft lumineux a Lyon',
-                'description' => 'Un loft spacieux et lumineux, ideal pour un sejour en centre-ville, a deux pas des commerces, des restaurants et des transports.',
+                'name' => 'Loft lumineux à Lyon',
+                'description' => 'Un loft spacieux et lumineux, idéal pour un séjour en centre-ville, à deux pas des commerces, des restaurants et des transports.',
             ],
             [
-                'name' => 'Villa panoramique a Nice',
-                'description' => 'Une villa elegante avec vue degagee sur les hauteurs de Nice, parfaite pour se detendre en famille ou entre amis dans un cadre calme.',
+                'name' => 'Villa panoramique à Nice',
+                'description' => 'Une villa élégante avec vue dégagée sur les hauteurs de Nice, parfaite pour se détendre en famille ou entre amis dans un cadre calme.',
             ],
             [
-                'name' => 'Studio elegant a Paris',
-                'description' => 'Un studio confortable et soigneusement amenage, ideal pour decouvrir Paris le temps d un week-end ou d un court sejour professionnel.',
+                'name' => 'Studio élégant à Paris',
+                'description' => 'Un studio confortable et soigneusement aménagé, idéal pour découvrir Paris le temps d\'un week-end ou d\'un court séjour professionnel.',
             ],
             [
-                'name' => 'Maison de charme a Bordeaux',
-                'description' => 'Une maison chaleureuse au style authentique, situee dans un quartier agreable pour profiter pleinement de l ambiance bordelaise.',
+                'name' => 'Maison de charme à Bordeaux',
+                'description' => 'Une maison chaleureuse au style authentique, située dans un quartier agréable pour profiter pleinement de l\'ambiance bordelaise.',
             ],
             [
-                'name' => 'Appartement design a Lille',
-                'description' => 'Un appartement moderne et bien equipe, pense pour offrir confort et praticite lors d un passage a Lille.',
+                'name' => 'Appartement design à Lille',
+                'description' => 'Un appartement moderne et bien équipé, pensé pour offrir confort et praticité lors d\'un passage à Lille.',
             ],
             [
-                'name' => 'Chalet familial a Annecy',
-                'description' => 'Un chalet accueillant avec une atmosphere conviviale, parfait pour un sejour au calme pres du lac et des montagnes.',
+                'name' => 'Chalet familial à Annecy',
+                'description' => 'Un chalet accueillant avec une atmosphère conviviale, parfait pour un séjour au calme près du lac et des montagnes.',
             ],
         ];
 
-        // Selection aleatoire d'un bien pour alimenter les données de demonstration.
+        // Sélection aléatoire d'un bien pour alimenter les données de démonstration.
         $property = fake()->randomElement($properties);
 
         return [

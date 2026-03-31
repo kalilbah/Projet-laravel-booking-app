@@ -13,7 +13,7 @@
                         <p class="mt-2 text-2xl font-bold text-slate-950">{{ number_format((float) $property->price_per_night, 2, ',', ' ') }} EUR</p>
                     </div>
                     <div>
-                        <p class="text-sm text-slate-500">Reservations</p>
+                        <p class="text-sm text-slate-500">Réservations</p>
                         <p class="mt-2 text-2xl font-bold text-slate-950">{{ $property->bookings->count() }}</p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
 
 
             <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h2 class="text-lg font-semibold text-slate-950">Dernieres reservations</h2>
+                <h2 class="text-lg font-semibold text-slate-950">Dernières réservations</h2>
                 <div class="mt-4 space-y-3">
                     @forelse ($property->bookings as $booking)
                     <div class="rounded-2xl bg-slate-50 px-4 py-3">
@@ -46,7 +46,7 @@
                     </div>
                     @empty
                     <p class="rounded-2xl border border-dashed border-slate-300 px-4 py-6 text-center text-sm text-slate-500">
-                        Aucune reservation sur ce bien.
+                        Aucune réservation sur ce bien.
                     </p>
                     @endforelse
                 </div>

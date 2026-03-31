@@ -18,7 +18,7 @@ class BookingsRelationManager extends RelationManager
 {
     protected static string $relationship = 'bookings';
 
-    protected static ?string $title = 'Reservations du compte';
+    protected static ?string $title = 'Réservations du compte';
 
     protected static string | \BackedEnum | null $icon = Heroicon::OutlinedCalendarDays;
 
@@ -27,17 +27,17 @@ class BookingsRelationManager extends RelationManager
         return $schema
             ->components([
                 Select::make('property_id')
-                    ->label('Propriete')
+                    ->label('Propriété')
                     ->relationship('property', 'name')
                     ->searchable()
                     ->preload()
                     ->required(),
                 DatePicker::make('start_date')
-                    ->label('Date d\'arrivee')
+                    ->label('Date d\'arrivée')
                     ->required()
                     ->native(false),
                 DatePicker::make('end_date')
-                    ->label('Date de depart')
+                    ->label('Date de départ')
                     ->required()
                     ->afterOrEqual('start_date')
                     ->native(false),
@@ -49,19 +49,19 @@ class BookingsRelationManager extends RelationManager
         return $table
             ->columns([
                 TextColumn::make('property.name')
-                    ->label('Propriete')
+                    ->label('Propriété')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('start_date')
-                    ->label('Arrivee')
+                    ->label('Arrivée')
                     ->date('d/m/Y')
                     ->sortable(),
                 TextColumn::make('end_date')
-                    ->label('Depart')
+                    ->label('Départ')
                     ->date('d/m/Y')
                     ->sortable(),
                 TextColumn::make('created_at')
-                    ->label('Cree le')
+                    ->label('Créé le')
                     ->since(),
             ])
             ->headerActions([
